@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="datanucleusenhance">
+    <property file="${project.dir}/src/main/ant/build.properties"/>
+
+	<import file="${sdk.dir}/config/user/ant-macros.xml" />
+	
+	<path id="project.classpath">
+		<fileset dir="${project.dir}/target/${webapp.name}/WEB-INF/lib" includes="*.jar"/>
+		<fileset dir="${sdk.dir}/lib">
+			<include name="shared/**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="copyjars">
+		<copy todir="${project.dir}/target/${webapp.name}/WEB-INF/lib"
+			flatten="true">
+			<fileset dir="${sdk.dir}/lib/user">
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="classcleanup" depends="copyjars">
+	  <delete dir="${project.dir}/target/${webapp.name}/WEB-INF/classes" failonerror="false">
+	    <include name="**/*.class"/>
+	  </delete>
+	</target>
+
+	<target name="compile" depends="classcleanup">
+		<mkdir dir="${project.dir}/target/${webapp.name}/WEB-INF/classes" />
+		<javac srcdir="${project.dir}/src/main/java" 
+		       destdir="${project.dir}/target/${webapp.name}/WEB-INF/classes" 
+		       classpathref="project.classpath"
+			   debug="on" 
+			   source="1.5" 
+			   target="1.5" 
+		       includeantruntime="false"/>
+	</target>
+	
+	<target name="datanucleusenhance" depends="compile">
+		<enhance_war war="${project.dir}/target/${webapp.name}" />
+		
+		<delete failonerror="false">
+		   <fileset dir="${project.dir}/target/${webapp.name}/WEB-INF/lib" includes="${delete.jar.file.list}"/>
+		</delete>
+	</target>
+</project>
+

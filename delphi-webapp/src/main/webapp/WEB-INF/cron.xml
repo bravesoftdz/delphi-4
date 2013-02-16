@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <!--  content fetching schedule -->
+  <cron>
+    <url>/cron/fetchContent/morning</url>
+    <description>fetches user content in the morning</description>
+    <schedule>every day 05:00</schedule>
+    <timezone>Australia/Sydney</timezone>
+  </cron>
+  <cron>
+    <url>/cron/fetchContent/noon</url>
+    <description>fetches user content at noon</description>
+    <schedule>every day 13:00</schedule>
+    <timezone>Australia/Sydney</timezone>
+  </cron>
+  <cron>
+    <url>/cron/fetchContent/night</url>
+    <description>fetches user content at night</description>
+    <schedule>every day 21:00</schedule>
+    <timezone>Australia/Sydney</timezone>
+  </cron>
+  
+  <!-- content sending schedule -->
+  <cron>
+    <url>/cron/sendMessage/morning</url>
+    <description>sends messages to users in the morning</description>
+    <schedule>every day 06:00</schedule>
+    <timezone>Australia/Sydney</timezone>
+  </cron>
+  
+  <cron>
+    <url>/cron/sendMessage/noon</url>
+    <description>sends messages to users at noon</description>
+    <schedule>every day 14:00</schedule>
+    <timezone>Australia/Sydney</timezone>
+  </cron>
+  
+  <cron>
+    <url>/cron/sendMessage/night</url>
+    <description>sends messages to users at night</description>
+    <schedule>every day 22:00</schedule>
+    <timezone>Australia/Sydney</timezone>
+  </cron>
+</cronentries>
+
