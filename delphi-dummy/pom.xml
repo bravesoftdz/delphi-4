@@ -2,7 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!--
-    This module has been added as a workaround to the f***ing circular dependency problem
+    This module has been added as a workaround to the annoying circular dependency problem
     between delphi-taglib and delphi-webapp. ONLY delphi-taglib should depend on it. NO ONE ELSE !!! 
    -->
   
